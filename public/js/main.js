@@ -19,7 +19,7 @@ campo.on('input', () => {
 });
 
 let tempoRestante =    $('#tempo-digitacao').text();
-    campo.on('focus',  () => {
+    campo.one('focus',  () => {
     let setIntervalId = setInterval(() => {
         tempoRestante--;
          $('#tempo-digitacao').text(tempoRestante);
