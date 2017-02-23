@@ -6,6 +6,12 @@ $('#botao-frase').click(() => {
         atualizaTamanhoFrase();
         atualizaTempoInicial(data[numeroAleatorio].tempo);
         tempo_inicial = data[numeroAleatorio].tempo;
+        $('#erro').hide();
+    }).fail(() => {
+        $('#erro').toggle();
+        setTimeout(function() {
+            $('#erro').toggle();
+        }, 2000);
     });
     
 });
