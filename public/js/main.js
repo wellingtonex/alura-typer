@@ -62,9 +62,8 @@ function inicializaCronometro() {
             tempoRestante--;
             $('#tempo-digitacao').text(tempoRestante);
             if(tempoRestante < 1) {
-                campo.attr('disabled', true);
-                campo.toggleClass("campo-desativado");
                 clearInterval(setIntervalId);
+                finalizaJogo();
             }
         }, 1000)
     });
@@ -81,4 +80,22 @@ function renicializaJogo()  {
     campo.removeClass("campo-desativado");
     campo.removeClass("campo-correto");
     campo.removeClass("campo-errado")
+}
+
+function finalizaJogo() {
+    campo.attr('disabled', true);
+    campo.toggleClass("campo-desativado");    
+    inserePlacar();
+}
+
+function inserePlacar() {
+    let usuario = 'Wellington';
+    let corpoTabela = $(".placar").find('tbody');
+    var linha = "<tr>"+
+                    "<td>"+ usuario + "</td>"+
+                    "<td>"+ $('#contador-palavras').text(); + "</td>"+
+                "</tr>";
+
+    corpoTabela.append(linha);            
+
 }
