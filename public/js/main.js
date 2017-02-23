@@ -98,7 +98,11 @@ function inserePlacar() {
 
     linha.find('.botao-remover').click((e) => {
         e.preventDefault();
-         $(e.target).parent().parent().parent().remove();
+        let linha = $(e.target).parent().parent().parent();
+        linha.fadeOut(1000);
+        setTimeout(function() {
+            linha.remove();
+        }, 1000);
     })
 
     corpoTabela.append(linha);            
