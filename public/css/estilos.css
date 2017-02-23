@@ -38,6 +38,10 @@ body{
  display: none;   
 }
 
+#frase-id{
+    width: 40px;
+}
+
 #spinner {
     display: none;
 }
