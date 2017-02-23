@@ -105,8 +105,17 @@ function inserePlacar() {
         }, 1000);
     })
 
-    corpoTabela.append(linha);            
+    corpoTabela.append(linha);
 
+    $('.placar').slideDown(500);
+    scrollPlacar();
+}
+
+function scrollPlacar() {
+    let position = $('.placar').offset().top;
+    $("body").animate({
+        scrollTop: position+"px"
+    }, 1000)
 }
 
 function novaLinha(usuario, quantidadeDePalavras) {
@@ -131,5 +140,5 @@ $('#botao-placar').click(() => {
     //$('.placar').toggle();
     //$('.placar').slideDown(2000);
     //$('.placar').slideUp(2000);
-    $('.placar').slideToggle();
+    $('.placar').stop().slideToggle();
 });
