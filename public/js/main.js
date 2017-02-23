@@ -122,3 +122,10 @@ function novaLinha(usuario, quantidadeDePalavras) {
 
     return linha;
 }
+
+$('#botao-placar').click(() => {
+    //$('.placar').toggle();
+    //$('.placar').slideDown(2000);
+    //$('.placar').slideUp(2000);
+    $('.placar').slideToggle();
+});
