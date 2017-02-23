@@ -3,26 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>Alura Typer</h1>
-    <p class="frase">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
 
-    <ul class="informacoes">
-        <li><spam id="tamanho-frase">5</spam> palavras</li>
-        <li><spam id="tempo-digitacao">10</spam> segundos</li>
-    </ul>
+    <div class="container">
+        <h1 class="center" >Alura Typer</h1>
+        <p class="frase center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
 
-    <textarea class="campo-digitacao" rows="8" cols ="40"></textarea>
-    <button id="botao-reiniciar">Reniciar</button>
+        <ul class="informacoes center">
+            <li>
+                <i class="small material-icons icones">description</i>
+                <spam id="tamanho-frase icones">5</spam>
+                 palavras</li>
+            <li>
+                <i class="small material-icons">query_builder</i>
+                <spam id="tempo-digitacao">10</spam> segundos
+            </li>
+        </ul>
 
-    <ul>
-        <li><span id="contador-caracteres">0</span> caracteres</li>
-        <li><span id="contador-palavras">0</span> palavras</li>
-    </ul>
+        <textarea class="campo-digitacao" rows="8" cols ="40"></textarea>
+        <div class="botoes">
+            <a id="botao-reiniciar" class="btn-floating btn-small waves-effect waves-light red">
+                <i class="small material-icons">restore</i>
+            </a>    
+        </div>
 
+        <ul class="center">
+            <li><span id="contador-caracteres">0</span> caracteres</li>
+            <li><span id="contador-palavras">0</span> palavras</li>
+        </ul>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
 </body>
