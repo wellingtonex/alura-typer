@@ -8,7 +8,28 @@ $(() => {
     let setIntervalId = inicializaCronometro();
     $('#botao-reiniciar').click(renicializaJogo);
     inicializaMarcadores();
+    atualizaPlacar();
 });
+
+function atualizaPlacar(){
+    $.get("http://localhost:3000/placar",function(data){
+        $(data).each(function(){
+            var linha = novaLinha(this.usuario, this.pontos);
+
+            linha.find('.botao-remover').click((e) => {
+                e.preventDefault();
+                let linha = $(e.target).parent().parent().parent();
+                linha.fadeOut(1000);
+                setTimeout(function() {
+                    linha.remove();
+                }, 1000);
+            });
+
+            $("tbody").append(linha);
+            $('.placar').fadeIn();
+        });
+    });
+}
 
 function atualizaTamanhoFrase(){
     var frase = $('.frase').text();
@@ -97,7 +118,7 @@ function inserePlacar() {
         setTimeout(function() {
             linha.remove();
         }, 1000);
-    })
+    });
 
     corpoTabela.append(linha);
 
