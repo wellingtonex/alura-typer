@@ -1,4 +1,5 @@
 $('#botao-frase').click(() => {
+    $('#spinner').show();
     $.get('http://localhost:3000/frases', (data) => {
         let frase = $('.frase')
         let numeroAleatorio = Math.floor(Math.random() * data.length);
@@ -12,6 +13,8 @@ $('#botao-frase').click(() => {
         setTimeout(function() {
             $('#erro').toggle();
         }, 2000);
+    }).always(() => {
+        $('#spinner').hide();
     });
     
 });
