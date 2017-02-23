@@ -1,4 +1,4 @@
-const TEMPO_INCIAL = 10;
+const TEMPO_INCIAL = 5;
 var campo  = $('.campo-digitacao')
 var setIntervalId;
 
@@ -91,11 +91,34 @@ function finalizaJogo() {
 function inserePlacar() {
     let usuario = 'Wellington';
     let corpoTabela = $(".placar").find('tbody');
-    var linha = "<tr>"+
-                    "<td>"+ usuario + "</td>"+
-                    "<td>"+ $('#contador-palavras').text(); + "</td>"+
-                "</tr>";
+
+    let botaoRemover = "<a href='#'><i class='small material-icons'>delete</i></a>" ;
+
+    let linha = novaLinha(usuario, $('#contador-palavras').text())
+
+    linha.find('.botao-remover').click((e) => {
+        e.preventDefault();
+         $(e.target).parent().parent().parent().remove();
+    })
 
     corpoTabela.append(linha);            
 
+}
+
+function novaLinha(usuario, quantidadeDePalavras) {
+    let linha = $('<tr>');
+    let colunaUsuario = $('<td>').text(usuario);
+    let colunaPalavras = $('<td>').text(quantidadeDePalavras);
+    let colunaRemover = $('<td>');
+    let link = $('<a>').addClass('botao-remover').attr('href', '#');
+    let icone = $('<i>').addClass('small').addClass('material-icons').text('delete');
+
+    link.append(icone);
+    colunaRemover.append(link);
+
+    linha.append(colunaUsuario);
+    linha.append(colunaPalavras);
+    linha.append(colunaRemover);
+
+    return linha;
 }
