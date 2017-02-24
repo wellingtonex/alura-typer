@@ -9,6 +9,15 @@ $(() => {
     $('#botao-reiniciar').click(renicializaJogo);
     inicializaMarcadores();
     atualizaPlacar();
+
+    $("#usuarios").selectize({
+        create: true,
+        sortField: 'text'
+    });
+
+    $(".tooltip").tooltipster({
+        trigger: 'custom'
+    });
 });
 
 function atualizaPlacar(){
@@ -104,7 +113,7 @@ function finalizaJogo() {
 }
 
 function inserePlacar() {
-    let usuario = 'Wellington';
+    let usuario = $("#usuarios").val();
     let corpoTabela = $(".placar").find('tbody');
 
     let botaoRemover = "<a href='#'><i class='small material-icons'>delete</i></a>" ;
@@ -161,3 +170,4 @@ $('#botao-placar').click(() => {
 function atualizaTempoInicial(tempo) {
     $("#tempo-digitacao").text(tempo);
 }
+

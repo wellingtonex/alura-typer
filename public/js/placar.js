@@ -21,8 +21,14 @@ $('#botao-sync').click(() => {
         placar: placar
     }
 
-    $.post('http://localhost:3000/placar', dados, () => {
-        console.log('salvando dados placar');        
+    $.post("http://localhost:3000/placar", dados , function() {
+    $(".tooltip").tooltipster("open"); 
+    }).fail(function(){
+        $(".tooltip").tooltipster("open").tooltipster("content", "Falha ao sincronizar"); 
+    }).always(function(){ //novo
+        setTimeout(function() {
+        $(".tooltip").tooltipster("close"); 
+    }, 1200);
     });
     
     
